@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <header class="masthead" style="background-image: url({{ asset ('images/home-bg.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Кобзев Павел</h1>
+                        <span class="subheading">простой блог на Symfony 4.2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% if articles is defined and articles is not empty %}
+
+                    {% for val in articles %}
+                        <div class="post-preview">
+                            <a href="{{ path('post',{id: val.id}) }}">
+                                <h2 class="post-title">{{ val.title }}</h2>
+                                <h5 class="post-subtitle">{{ val.description }}</h5>
+                            </a>
+                            <p class="post-meta">Идентфикатор этого поста {{ val.id }}</p>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                    <div class="clearfix">
+                        {{ knp_pagination_render(articles) }}
+                    </div>
+                {% else %}
+                    <p>Список постов пуст</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset ('build/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset ('build/admin.css') }}" rel="stylesheet">
+        <link href="{{ asset ('build/font-awesome.css') }}" rel="stylesheet">
+        <script src="{{ asset ('build/jquery.js') }}"></script>
+        <script src="{{ asset ('build/popper.js') }}"></script>
+        <script src="{{ asset ('build/bootstrap.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset ('build/ckeditor/ckeditor.js') }}"></script>
+    {% endblock %}
+
+
+</head>
+<body class="fixed-nav sticky-footer bg-dark">
+{% block navigation %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="{{ path('blognew') }}">Панель Администратора</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('blognew') }}">
+                        <span class="nav-link-text">Главная</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_add') }}">
+                        <i class="fa fa-fw fa-plus"></i>
+                        <span class="nav-link-text">Добавить пост</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_posts') }}">
+                        <i class="fa fa-fw fa-list"></i>
+                        <span class="nav-link-text">Посты</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('logout') }}">
+                        <i class="fa fa-fw fa-sign-out"></i>
+                        <span class="nav-link-text">Выход</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}{% endblock %}
+
+{% block footer %}
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>&copy; 2018</small>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+</body>
+</html>

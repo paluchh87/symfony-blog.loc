@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <header class="masthead" style="background-image: url({{ asset ('materials/1.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading">
+                        <h1>{{ data.title }}</h1>
+                        <span class="subheading">{{ data.description }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p>{{ data.text }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

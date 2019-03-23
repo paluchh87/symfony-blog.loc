@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="card mb-3">
+                <div class="card-header">Посты</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+
+                            {% if articles is defined and articles is not empty %}
+
+                                <table class="table">
+                                    <tr>
+                                        <th>Название</th>
+                                        <th>Редактировать</th>
+                                        <th>Удалить</th>
+                                    </tr>
+                                    {% for val in articles %}
+                                        <tr>
+                                            <td>{{ val.title }}</td>
+                                            <td><a href="{{ path('admin_edit',{id: val.id}) }}" class="btn btn-primary">Редактировать</a>
+                                            </td>
+                                            <td><a href="{{ path('admin_delete',{id: val.id}) }}"
+                                                   class="btn btn-danger">Удалить</a></td>
+                                        </tr>
+
+                                    {% endfor %}
+                                </table>
+                                <div class="clearfix">
+                                    {{ knp_pagination_render(articles) }}
+                                </div>
+
+                            {% else %}
+                                <p>Список постов пуст</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
